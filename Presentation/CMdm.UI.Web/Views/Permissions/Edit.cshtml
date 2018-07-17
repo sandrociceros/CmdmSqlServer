@@ -1,0 +1,54 @@
+﻿@model CMdm.UI.Web.Models.UserAdmin.PermissionListModel
+
+@{
+    //page title
+    ViewBag.Title = "Edit";
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            Edit Permission
+            <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink("To List", "List")</small>
+        </h1>
+        <div class="pull-right">
+            <button type="submit" name="save" class="btn btn-warning">
+                <i class="fa fa-floppy-o"></i>
+                Save
+            </button>
+            <button type="submit" name="save-continue" class="btn bg-purple">
+                <i class="fa fa-floppy-o"></i>
+                Save and Continue Edit
+            </button>
+            @*<span id="perm-delete" class="btn bg-red">
+                <i class="fa fa-trash-o"></i>
+                Delete
+            </span>*@
+        </div>
+    </div>
+    @Html.Partial("_CreateOrUpdate", Model)
+}
+<div>
+    <br />
+    <fieldset>
+        <legend>
+            <h3>
+                Roles Associated with this Permission
+            </h3>
+        </legend>
+
+        <div id="RolesTable">
+            @Html.Partial("_ListRolesTable4Permission", Model)
+        </div>
+        <div>
+            @Html.Partial("_AddRole4Permission", Model)
+        </div>
+        <br />
+       
+    </fieldset>
+
+</div>
+@*@Html.DeleteConfirmation("perm-delete")*@

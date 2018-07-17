@@ -1,0 +1,224 @@
+﻿<error errorId="1d61a375-a049-4124-87e5-6effa22b6a92" application="/LM/W3SVC/3/ROOT" host="BLUECHIP-LAOLU" type="System.Data.SqlClient.SqlException" message="Invalid object name 'CDMACONV.VW_MDM_DQ_QUE'." source=".Net SqlClient Data Provider" detail="System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---&gt; System.Data.SqlClient.SqlException: Invalid object name 'CDMACONV.VW_MDM_DQ_QUE'.&#xD;&#xA;   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;&#xA;   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;&#xA;   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;&#xA;   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;&#xA;   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()&#xD;&#xA;   at System.Data.SqlClient.SqlDataReader.get_MetaData()&#xD;&#xA;   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)&#xD;&#xA;   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)&#xD;&#xA;   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)&#xD;&#xA;   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)&#xD;&#xA;   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)&#xD;&#xA;   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)&#xD;&#xA;   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)&#xD;&#xA;   at Glimpse.Ado.AlternateType.GlimpseDbCommand.ExecuteDbDataReader(CommandBehavior behavior)&#xD;&#xA;   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)&#xD;&#xA;   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.&lt;Reader&gt;b__c(DbCommand t, DbCommandInterceptionContext`1 c)&#xD;&#xA;   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)&#xD;&#xA;   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)&#xD;&#xA;   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)&#xD;&#xA;   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)&#xD;&#xA;   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)&#xD;&#xA;   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__6()&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__5()&#xD;&#xA;   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator&gt;b__0()&#xD;&#xA;   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()&#xD;&#xA;   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)&#xD;&#xA;   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)&#xD;&#xA;   at CMdm.Data.DAC.DqQueDAC.Select(String name, Nullable`1 mdmId, Int32 startRowIndex, Int32 maximumRows, String sortExpression) in C:\LaoluOlapegba\MyMachine\MyDotnet\CMDM_SQLServer\Data\CMdm.Data\DAC\DqQueDAC.cs:line 173&#xD;&#xA;   at CMdm.Services.DqQue.DqQueService.GetAllQueItems(String name, Nullable`1 mdmId, Int32 pageIndex, Int32 pageSize, String sortExpression) in C:\LaoluOlapegba\MyMachine\MyDotnet\CMDM_SQLServer\Services\CMdm.Services\DqQue\DqQueService.cs:line 148&#xD;&#xA;   at CMdm.UI.Web.Controllers.DQQueController.List(DataSourceRequest command, DqQueListModel model, String sort, String sortDir) in C:\LaoluOlapegba\MyMachine\MyDotnet\CMDM_SQLServer\Presentation\CMdm.UI.Web\Controllers\DQQueController.cs:line 113&#xD;&#xA;   at lambda_method(Closure , ControllerBase , Object[] )&#xD;&#xA;   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)&#xD;&#xA;   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;BeginInvokeSynchronousActionMethod&gt;b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at Castle.Proxies.AsyncControllerActionInvokerProxy.EndInvokeActionMethod_callback(IAsyncResult asyncResult)&#xD;&#xA;   at Castle.Proxies.Invocations.AsyncControllerActionInvoker_EndInvokeActionMethod.InvokeMethodOnTarget()&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.CastleInvocationToAlternateMethodContextAdapter.Proceed()&#xD;&#xA;   at Glimpse.Mvc.AlternateType.AsyncActionInvoker.EndInvokeActionMethod.NewImplementation(IAlternateMethodContext context)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateTypeToCastleInterceptorAdapter.Intercept(IInvocation invocation)&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Castle.Proxies.AsyncControllerActionInvokerProxy.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3d()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass33.&lt;BeginInvokeActionMethodWithFilters&gt;b__32(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="omniuser" time="2018-07-17T11:25:53.2185877Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:181&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:application/json, text/javascript, */*; q=0.01&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=Fmal4W5IZKjxbA9Bg0q4ugMQ3RrE1-xe4IOd-GaCAKFes8e1kY869TifpNEVxpTfcJww4Rdqh4teWdcta_jUAXZINpQnrQcqRNXqfXiDy041; CFID=10400; CFTOKEN=55814831; CFAUTHORIZATION_cfadmin=YWRtaW4NMjFCRDEyREMxODNGNzQwRUU3NkYyN0I3OEVCMzlDOEFEOTcyQTc1Nw1jZmFkbWlu; ASP.NET_SessionId=k25w52kudow0m2npk1jqrrbm; glimpsePolicy=On; glimpseId=Chrome 67.0; NOPCOMMERCE.AUTH=EA1051247A6D96CA8C10CB210DD51D8317DDE03962B95A49C54C7A03D3BE251E25F96EEE5F0E0CF7D6864AEF158DC47CA6EF5BDED6304301FDE6EF2DC6DCA3BDB08A7BB4ED6E9FA176A071C15B4A21B991C337426580050DAFBE22F82B555B63D736835FD45A8E5C4A0DA7E9C6A9D0BD11267414BB1D2DAFF3E6D3962DE6AAAAE154D23660BF397D696ED0CEC7FF28EEEC26B073A388E1C103B27606C9838ECEF19C4C0297C07EEE8674863856F310A4; Nop.customer=7b3a2ef2-7104-45bd-873f-3cbcbfe1e045; .ASPXAUTH=FD0284BB9200ECE8927C9F44B2A0DCE76B10EA75D54A65ED85D7D941F662CAC5ACC7A09D68B9A2CDBB97E8545965862AF4FD3152CB87729C7DB90C5CE58423AF4770C5C6FDABADF4E46D34C1B2DAC9A44242CBF68EA3CB289143D489553478BA&#xD;&#xA;HTTP_HOST:localhost:18459&#xD;&#xA;HTTP_REFERER:http://localhost:18459/DQQue/List&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36&#xD;&#xA;HTTP_GLIMPSE_PARENT_REQUESTID:9cb2fa1f-534c-4ab5-b8a5-a556294edd4b&#xD;&#xA;HTTP_ORIGIN:http://localhost:18459&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 181&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: application/json, text/javascript, */*; q=0.01&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9&#xD;&#xA;Cookie: __RequestVerificationToken=Fmal4W5IZKjxbA9Bg0q4ugMQ3RrE1-xe4IOd-GaCAKFes8e1kY869TifpNEVxpTfcJww4Rdqh4teWdcta_jUAXZINpQnrQcqRNXqfXiDy041; CFID=10400; CFTOKEN=55814831; CFAUTHORIZATION_cfadmin=YWRtaW4NMjFCRDEyREMxODNGNzQwRUU3NkYyN0I3OEVCMzlDOEFEOTcyQTc1Nw1jZmFkbWlu; ASP.NET_SessionId=k25w52kudow0m2npk1jqrrbm; glimpsePolicy=On; glimpseId=Chrome 67.0; NOPCOMMERCE.AUTH=EA1051247A6D96CA8C10CB210DD51D8317DDE03962B95A49C54C7A03D3BE251E25F96EEE5F0E0CF7D6864AEF158DC47CA6EF5BDED6304301FDE6EF2DC6DCA3BDB08A7BB4ED6E9FA176A071C15B4A21B991C337426580050DAFBE22F82B555B63D736835FD45A8E5C4A0DA7E9C6A9D0BD11267414BB1D2DAFF3E6D3962DE6AAAAE154D23660BF397D696ED0CEC7FF28EEEC26B073A388E1C103B27606C9838ECEF19C4C0297C07EEE8674863856F310A4; Nop.customer=7b3a2ef2-7104-45bd-873f-3cbcbfe1e045; .ASPXAUTH=FD0284BB9200ECE8927C9F44B2A0DCE76B10EA75D54A65ED85D7D941F662CAC5ACC7A09D68B9A2CDBB97E8545965862AF4FD3152CB87729C7DB90C5CE58423AF4770C5C6FDABADF4E46D34C1B2DAC9A44242CBF68EA3CB289143D489553478BA&#xD;&#xA;Host: localhost:18459&#xD;&#xA;Referer: http://localhost:18459/DQQue/List&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36&#xD;&#xA;Glimpse-Parent-RequestID: 9cb2fa1f-534c-4ab5-b8a5-a556294edd4b&#xD;&#xA;Origin: http://localhost:18459&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\LaoluOlapegba\MyMachine\MyDotnet\CMDM_SQLServer\Presentation\CMdm.UI.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="omniuser" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="omniuser" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="181" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/DQQue/List" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\LaoluOlapegba\MyMachine\MyDotnet\CMDM_SQLServer\Presentation\CMdm.UI.Web\DQQue\List" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="25358" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/DQQue/List" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="18459" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/DQQue/List" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="181" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="application/json, text/javascript, */*; q=0.01" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=Fmal4W5IZKjxbA9Bg0q4ugMQ3RrE1-xe4IOd-GaCAKFes8e1kY869TifpNEVxpTfcJww4Rdqh4teWdcta_jUAXZINpQnrQcqRNXqfXiDy041; CFID=10400; CFTOKEN=55814831; CFAUTHORIZATION_cfadmin=YWRtaW4NMjFCRDEyREMxODNGNzQwRUU3NkYyN0I3OEVCMzlDOEFEOTcyQTc1Nw1jZmFkbWlu; ASP.NET_SessionId=k25w52kudow0m2npk1jqrrbm; glimpsePolicy=On; glimpseId=Chrome 67.0; NOPCOMMERCE.AUTH=EA1051247A6D96CA8C10CB210DD51D8317DDE03962B95A49C54C7A03D3BE251E25F96EEE5F0E0CF7D6864AEF158DC47CA6EF5BDED6304301FDE6EF2DC6DCA3BDB08A7BB4ED6E9FA176A071C15B4A21B991C337426580050DAFBE22F82B555B63D736835FD45A8E5C4A0DA7E9C6A9D0BD11267414BB1D2DAFF3E6D3962DE6AAAAE154D23660BF397D696ED0CEC7FF28EEEC26B073A388E1C103B27606C9838ECEF19C4C0297C07EEE8674863856F310A4; Nop.customer=7b3a2ef2-7104-45bd-873f-3cbcbfe1e045; .ASPXAUTH=FD0284BB9200ECE8927C9F44B2A0DCE76B10EA75D54A65ED85D7D941F662CAC5ACC7A09D68B9A2CDBB97E8545965862AF4FD3152CB87729C7DB90C5CE58423AF4770C5C6FDABADF4E46D34C1B2DAC9A44242CBF68EA3CB289143D489553478BA" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:18459" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:18459/DQQue/List" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" />
+    </item>
+    <item name="HTTP_GLIMPSE_PARENT_REQUESTID">
+      <value string="9cb2fa1f-534c-4ab5-b8a5-a556294edd4b" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:18459" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="SearchName">
+      <value string="" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="QpRHVIYVa0Gedn_0XaWYC4DZIjLOAKsYAsGAvRc2nU5FYYWlNOE2R9NvFAFDIo2IiHlmJ5rLA2FT1yjEZlquNwZf6LZQfXog8kQyPxDOxn81" />
+    </item>
+    <item name="take">
+      <value string="20" />
+    </item>
+    <item name="skip">
+      <value string="0" />
+    </item>
+    <item name="page">
+      <value string="1" />
+    </item>
+    <item name="pageSize">
+      <value string="20" />
+    </item>
+  </form>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="Fmal4W5IZKjxbA9Bg0q4ugMQ3RrE1-xe4IOd-GaCAKFes8e1kY869TifpNEVxpTfcJww4Rdqh4teWdcta_jUAXZINpQnrQcqRNXqfXiDy041" />
+    </item>
+    <item name="CFID">
+      <value string="10400" />
+    </item>
+    <item name="CFTOKEN">
+      <value string="55814831" />
+    </item>
+    <item name="CFAUTHORIZATION_cfadmin">
+      <value string="YWRtaW4NMjFCRDEyREMxODNGNzQwRUU3NkYyN0I3OEVCMzlDOEFEOTcyQTc1Nw1jZmFkbWlu" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="k25w52kudow0m2npk1jqrrbm" />
+    </item>
+    <item name="glimpsePolicy">
+      <value string="On" />
+    </item>
+    <item name="glimpseId">
+      <value string="Chrome 67.0" />
+    </item>
+    <item name="NOPCOMMERCE.AUTH">
+      <value string="EA1051247A6D96CA8C10CB210DD51D8317DDE03962B95A49C54C7A03D3BE251E25F96EEE5F0E0CF7D6864AEF158DC47CA6EF5BDED6304301FDE6EF2DC6DCA3BDB08A7BB4ED6E9FA176A071C15B4A21B991C337426580050DAFBE22F82B555B63D736835FD45A8E5C4A0DA7E9C6A9D0BD11267414BB1D2DAFF3E6D3962DE6AAAAE154D23660BF397D696ED0CEC7FF28EEEC26B073A388E1C103B27606C9838ECEF19C4C0297C07EEE8674863856F310A4" />
+    </item>
+    <item name="Nop.customer">
+      <value string="7b3a2ef2-7104-45bd-873f-3cbcbfe1e045" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="FD0284BB9200ECE8927C9F44B2A0DCE76B10EA75D54A65ED85D7D941F662CAC5ACC7A09D68B9A2CDBB97E8545965862AF4FD3152CB87729C7DB90C5CE58423AF4770C5C6FDABADF4E46D34C1B2DAC9A44242CBF68EA3CB289143D489553478BA" />
+    </item>
+  </cookies>
+</error>

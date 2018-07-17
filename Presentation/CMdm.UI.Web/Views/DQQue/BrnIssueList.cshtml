@@ -1,0 +1,708 @@
+﻿@using CMdm.Framework;
+@model CMdm.UI.Web.Models.DqQue.DqquebrnListModel
+@*ViewBag.Title = "Data Quality Rules";
+    ViewBag.SubTitle = "List";*@
+@{
+    ViewBag.Title = "Data Quality Issues";
+    //ViewBag.SubTitle = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var defaultGridPageSize = 10;
+    var gridPageSizes = "10, 15, 20, 50, 100";
+}
+<style>
+    .nav-tabs-custom > .tab-content {
+        color: black;
+    }
+
+    .modal-dialog {
+        width: 900px;
+    }
+</style>
+
+@Html.AntiForgeryToken()
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default panel-search">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @*<div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.CreatedOnFrom)
+            </div>
+            <div class="col-md-8">
+                @Html.CMdmEditorFor(model => model.CreatedOnFrom)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.CreatedOnTo)
+            </div>
+            <div class="col-md-8">
+                @Html.CMdmEditorFor(model => model.CreatedOnTo)
+            </div>
+        </div>*@
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.Label("Customer No")
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.CMdmEditorFor(model => model.CUST_ID)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.Label("Error Description")
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.CMdmEditorFor(model => model.SearchName)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.BRANCH_CODE)
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.CMdmDropDownList("BRANCH_CODE", Model.Branches)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.Label("Tier")
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.CMdmDropDownListFor(model => model.TIER, Model.Tiers)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="button" id="search-rule" class="btn btn-warning btn-search">
+                                        <i class="fa fa-search"></i>
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @*<div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.ISSUE_PRIORITY_DESC)
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.CMdmDropDownList("PRIORITY_CODE", Model.Priorities)
+                                </div>
+                            </div>*@
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.ISSUE_STATUS_DESC)
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.CMdmDropDownList("STATUS_CODE", Model.Statuses)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.CATALOG_ID)
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.CMdmDropDownList("CATALOG_ID", Model.Catalogs)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<em>You have <span class="label label-success">4 Closed</span> issues, <span class="label label-warning">127 pending</span> and <span class="label label-default">2 in progress</span></em>*@
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="dqrule-grid"></div>
+                    <div id="details"></div>
+                    <script>
+                        var wnd,
+                        detailsTemplate;
+                        $(document).ready(function () {
+
+                            let _modifyProfile = function(dataItem){
+                                console.log(JSON.stringify(dataItem));
+
+                                modifyProfile(dataItem.CUST_ID, dataItem.BRANCH_CODE, dataItem.RULE_ID,  908098);
+                            };
+
+                            $("#dqrule-grid").kendoGrid({
+                                dataSource: {
+                                    type: "json",
+                                    transport: {
+                                        read: {
+                                            url: "@Html.Raw(Url.Action("BrnIssueList", "DQQue"))",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: additionalData
+                                        }
+                                    },
+                                    schema: {
+                                        data: "Data",
+                                        total: "Total",
+                                        errors: "Errors"
+                                    },
+                                    error: function(e) {
+                                        display_kendoui_grid_error(e);
+                                        // Cancel the changes
+                                        this.cancelChanges();
+                                    },
+                                    pageSize: @(defaultGridPageSize),
+                                    serverPaging: true,
+                                    serverFiltering: true,
+                                    serverSorting: true
+                                },
+                                pageable: {
+                                    refresh: true,
+                                    pageSizes: [@(gridPageSizes)],
+                                    @Html.Partial("_GridPagerMessages")
+                                },
+                                editable: {
+                                    confirmation: "Delete?",
+                                    mode: "inline"
+                                },
+                                scrollable: false,
+                                columns: [
+                                    {
+                                        width: 50,
+                                        template: function (dataItem) {
+                                        //console.log(dataItem);
+                                        //var button = $(this);
+                                        //var row = $(this).select().closest("tr"); 
+                                        //var dataRow = grid.dataItem(row);
+                                        buttons = '<div style="width:80px">';
+                                        //buttons += '<button onclick="modifyProfile(' + `'${dataItem.CUST_ID}',${dataItem.BRANCH_CODE},${dataItem.RULE_ID},'${dataItem.CATALOG_TABLE_NAME}'` + ')" type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-primary">Modify</button>'
+                                        buttons += '<button onclick="modifyProfile(' + `'${dataItem.CUST_ID}',${dataItem.BRANCH_CODE},${dataItem.RULE_ID},'${dataItem.CATALOG_TABLE_NAME}'` + ')" type="button" class="btn btn-warning">Modify</button>'
+                                        //buttons += '<button type="button" class="btn btn-info" onclick="_modifyProfile(' + `${dataItem}` + ')"  data-toggle="modal" data-target="#modal-primary">Modify</button>'
+                                        buttons += '</div>';
+                                        //let $button = $(buttons);
+                                      
+                                        // $button.find('.open-modal').on('click', _modifyProfile(dataItem));
+                                        return buttons;
+                                    }
+                                    },
+                                     {
+                                         field: "CUST_ID",
+                                         title: "Customer No",
+                                         width: 100
+
+                                     },
+                                    {
+                                    //command: { text: "Modify", template: "<a class='k-grid-decreaseIndent k-button' onclick='showDetails($(this))' >Modify</a>", }, title: "Operation", width: "100px" },
+                                    field: "REASON",
+                                    title: "Error Description",
+                                    width: 200 
+                                },                                   
+                                //    {
+
+                                //    field: "RULE_NAME",
+                                //    title: "Rule Name",
+                                //    width: 150
+                                //},
+                                {
+                                    field: "BRANCH_NAME",
+                                    title: "Branch",
+                                    width: 100
+                                },
+                                @*@if (1==1)
+                                {
+                                        <text>{
+                                    field: "PRIORITY_CODE",
+                                    title: "Priority",
+                                            width: 50,
+                                            template: '<span class="grid-report-item ' +
+                                                '# if(PRIORITY_CODE == 1) {# red #} #' +
+                                                '# if(PRIORITY_CODE == 2) {# yellow #} #' +
+                                                '# if(PRIORITY_CODE == 3) {# blue #} #' +
+                                                '# if(PRIORITY_CODE == 4) {# green #} #' +
+                                                '# if(PRIORITY_CODE == 5) {# green #} #' +
+                                                '">#=ISSUE_PRIORITY_DESC#</span>'
+                                        },</text>
+                                    }*@
+
+                                {
+                                    field: "RUN_DATE",
+                                    title: "Last Run Date",
+                                    width: 50,
+                                    type: "date",
+                                    format: "{0:G}",
+                                    headerAttributes: { style: "text-align:center" },
+                                    attributes: { style: "text-align:center" },
+                                    template: "#= kendo.toString(kendo.parseDate(RUN_DATE, 'yyyy-MM-dd'), 'dd/MM/yyyy') #"
+                                },
+                                    @if (1==1)
+                                    {
+                                        <text>{
+                                            field: "STATUS_CODE",
+                                            title: "Status",
+                                            width: 50,
+                                            template: '<span class="grid-report-item ' +
+                                                '# if(STATUS_CODE == 2) {# green #} #' +
+                                                '# if(STATUS_CODE == 3) {# yellow #} #' +
+                                                '# if(STATUS_CODE == 1) {# blue #} #' +
+                                                '# if(STATUS_CODE == 4) {# red #} #' +
+                                                '">#=ISSUE_STATUS_DESC#</span>'
+                                        },</text>
+                                    }
+                                    {
+                                        field: "TIER",
+                                        title: "Tier",
+                                        width: 50
+                                    },
+                                    {
+                                        field: "AUTH_REJECT_REASON",
+                                        title: "Rejection Reason",
+                                        width: 200
+                                    }
+                                   ]
+                            });
+                            wnd = $("#details")
+                                    .kendoWindow({
+                                        title: "Data Details",
+                                        modal: true,
+                                        visible: false,
+                                        resizable: false,
+                                        width: 300
+                                    }).data("kendoWindow");
+
+                            detailsTemplate = kendo.template($("#template").html());
+                        });
+                        function showDetails(e) {
+                            var row = e.select().closest("tr");
+                            // or e.parent().parent();
+                            var grid = $('#dqrule-grid').data('kendoGrid');
+                            console.log(grid.dataItem(row));
+                            var dataItem = grid.dataItem(row);
+                            wnd.content(detailsTemplate(dataItem));
+                            wnd.center().open();
+                        }
+                    </script>
+                    <script type="text/x-kendo-template" id="template">
+                        <div id="details-container">
+                            <h2>#= BRANCH_CODE #</h2>
+                            <em>#= CATALOG_TABLE_NAME #</em>
+                            <dl>
+                                <dt>Rule: #= RULE_ID #</dt>
+                                
+                            </dl>
+                        </div>
+                    </script>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            //search button
+                            $('#search-rule').click(function () {
+                                //search
+                                var grid = $('#dqrule-grid').data('kendoGrid');
+                                grid.dataSource.page(1); //new search. Set page size to 1
+                                //grid.dataSource.read(); we already loaded the grid above using "page" function
+                                return false;
+                            });
+
+                            $("#@Html.FieldIdFor(model => model.SearchName), #CUST_ID, #BRANCH_CODE, #PRIORITY_CODE, #STATUS_CODE, #CATALOG_ID").keydown(function (event) {
+                                if (event.keyCode == 13) {
+                                    $("#search-rule").click();
+                                    return false;
+                                }
+                            });
+                        });
+
+                        function additionalData() {
+                            var data = {
+                                SearchName: $('#@Html.FieldIdFor(model => model.SearchName)').val(),
+                                CUST_ID: $('#@Html.FieldIdFor(model =>model.CUST_ID)').val(),
+                                BRANCH_CODE: $('#BRANCH_CODE').val(),
+                                PRIORITY_CODE: $('#PRIORITY_CODE').val(),
+                                STATUS_CODE: $('#STATUS_CODE').val(),
+                                CATALOG_ID: $('#CATALOG_ID').val(),
+                                TIER: $('#TIER').val(),
+                                @*CreatedOnFrom: $('#@Html.FieldIdFor(model => model.CreatedOnFrom)').val(),
+                                CreatedOnTo: $('#@Html.FieldIdFor(model => model.CreatedOnTo)').val(),
+                                    Dates in kendo :https://blog.falafel.com/passing-dates-kendo-ui-aspnet/
+                                    *@
+
+                            };
+                            addAntiForgeryToken(data);
+                            return data;
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+  
+    <script type="text/javascript">
+        function validateKeyStrokes(event) {
+            event = event || window.event;
+            var charCode = (typeof event.which == "undefined") ? event.keyCode : event.which;
+            var charStr = String.fromCharCode(charCode);
+            if (/\d/.test(charStr)) {
+                alert("Numeric is not allowed!");
+                return false;
+            }
+
+            //var charCode = (event.which) ? event.which : event.keyCode;
+            //if (charCode > 47 && charCode < 58 || charCode > 95 && charCode < 107) {
+              //  alert("Numeric is not allowed!");
+                //$("#AddressDetails_CITY_TOWN_OF_RESIDENCE").after('<span class="text-red">Numeric is not allowed.</span>');
+                //return false;
+            //}
+            return true;
+        }
+        function validateMail()
+        {
+
+            var hasError = false;
+            var emailReg  =  /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,6})?$/;
+
+            var emailaddressVal = $("#contact_EMAIL_ADDRESS").val();
+            if(emailaddressVal == '') {
+                $("#contact_EMAIL_ADDRESS").after('<span class="text-red">Enter email address.</span>');
+                hasError = true;
+            }
+
+            else if(!emailReg.test(emailaddressVal)) {
+                $("#contact_EMAIL_ADDRESS").after('<span class="text-red">Enter a valid email address.</span>');
+                hasError = true;
+            }
+
+            if(hasError == true) { return false; }
+
+
+        }
+
+
+    //biodata
+    function ApproveData() {
+        //  alert('Hello');saving display
+        // document.getElementById("display").innerHTML = "";
+        $("#display").css({ 'display': 'none' });
+        $("#update").css({ 'display': 'none' });
+        $("#saving").css({ 'display': 'block' });
+
+        var frm = $('#biodata');
+
+        var url = "@Url.Action("ApproveBioData", "Dynamic")"; // the script where you handle the form input.
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#biodata").serialize(), // serializes the form's elements.
+            success: function (data) {
+                // alert(data); // show response from the server.
+                $("#saving").css({ 'display': 'none' });
+                $("#display").css({ 'display': 'none' });
+                $("#update").css({ 'display': 'block' });
+                //update
+                document.getElementById("update").innerHTML = "";
+                document.getElementById("update").innerHTML = data;
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    };
+
+    //biodata
+        function DisapproveData () {
+        $("#display").css({ 'display': 'none' });
+        $("#update").css({ 'display': 'none' });
+        $("#saving").css({ 'display': 'block' });
+
+        var frm = $('#biodata');
+
+        var url = "@Url.Action("DisapproveBioData", "Dynamic")"; // the script where you handle the form input.
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#biodata").serialize(), // serializes the form's elements.
+            success: function (data) {
+                // alert(data); // show response from the server.
+                $("#saving").css({ 'display': 'none' });
+                $("#display").css({ 'display': 'none' });
+                $("#update").css({ 'display': 'block' });
+                //update
+                document.getElementById("update").innerHTML = "Record Rejected";
+                document.getElementById("update").innerHTML = data;
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    };
+
+
+
+    //biodata
+   function submitBioData() {
+       //  alert('Hello');saving display
+       // document.getElementById("display").innerHTML = "";
+       validateMail();
+       //identification_ID_EXPIRY_DATE
+       //identification_ID_ISSUE_DATE
+       var ID_EXPIRY_DATE = new Date($( "#identification_ID_EXPIRY_DATE" ).val());
+       var ID_ISSUE_DATE = new Date($( "#identification_ID_ISSUE_DATE" ).val());
+
+       if(ID_EXPIRY_DATE.getTime() < ID_ISSUE_DATE.getTime())
+       {
+           alert('EXPIRY DATE cannot be earlier than ISSUE DATE ');
+           return false;
+       }
+
+
+       $("#display").css({ 'display': 'none' });
+       $("#update").css({ 'display': 'none' });
+       $("#saving").css({ 'display': 'block' });
+
+        var frm = $('#biodata');
+
+        var url = "@Url.Action("SaveBioData", "Dynamic")"; // the script where you handle the form input.
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#biodata").serialize(), // serializes the form's elements.
+            success: function (data) {
+                // alert(data); // show response from the server.
+                $("#saving").css({ 'display': 'none' });
+                $("#display").css({ 'display': 'none' });
+                $("#update").css({ 'display': 'block' });
+                //update
+                document.getElementById("update").innerHTML = "";
+                document.getElementById("update").innerHTML = data;
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    };
+
+
+    //modifyProfile
+    function modifyProfile(cus_id,branch,rule,table)
+    {
+        var postData = {
+            customerId: cus_id,
+            branch: branch,
+            rule: rule,
+            table: table,
+        };
+        addAntiForgeryToken(postData);
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.Action("ModifyProfile", "DQQue"))",
+            contentType: 'application/json; charset=utf-8',
+            data: postData,
+            success: function (data) {
+                if (data.success)
+                    //alert(data.url);
+                    window.location = data.url;
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+            },
+            traditional: true
+        });
+        return false;
+
+       @*// alert(cus_id);
+        $("#update").css({ 'display': 'none' });
+        var queryString = "c_id=" + cus_id;
+        queryString += "&branch=" + branch + "&rule=" + rule + "&table=" + table;
+        //alert(cus_id);
+        $("#loading").css({ 'display': 'block' });
+        $("#display").css({ 'display': 'none' });
+         $.ajax({url: "@Url.Action("Dataquality", "Dynamic")",
+                 type: 'get',data: queryString,cache: false,
+                 success: function (data) {
+                     // alert(data);
+                     $("#loading").css({ 'display': 'none' });
+                     $("#display").css({ 'display': 'block' });
+
+                      document.getElementById("display").innerHTML = "";
+                     // document.getElementById("display").innerHTML="hello";
+                     // var response = jQuery.parseJSON(data);
+                      //alert(response);
+                      document.getElementById("display").innerHTML = data;
+                  }
+                          }
+                   );*@
+    }
+
+    //modifyProfile
+    function validateProfile(cus_id,branch,rule,table)
+    {
+        $("#update").css({ 'display': 'none' });
+        var queryString = "c_id=" + cus_id;
+        queryString += "&branch=" + branch + "&rule=" + rule + "&table=" + table;
+        //alert(cus_id);
+        $("#loading").css({ 'display': 'block' });
+        $("#display").css({ 'display': 'none' });
+        $.ajax({url: "@Url.Action("DataValidation", "Dynamic")",
+            type: 'get',data: queryString,cache: false,
+        success: function (data) {
+            // alert(data);
+            $("#loading").css({ 'display': 'none' });
+            $("#display").css({ 'display': 'block' });
+
+            document.getElementById("display").innerHTML = "";
+            // document.getElementById("display").innerHTML="hello";
+            // var response = jQuery.parseJSON(data);
+            //alert(response);
+            document.getElementById("display").innerHTML = data;
+        }
+    }
+                   );
+
+
+    }
+    </script>
+}
+
+
+<div class="modal modal-primary fade" id="modal-primary">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <center><div id="loading"><img src="~/AdminLTE/dist/img/loading.gif"></div></center>
+            <div class="modal-body" style="display:none" id="update">
+
+            </div>
+
+
+            <div class="modal-body" id="display">
+
+            </div>
+            <div id="saving" class="box box-danger box-solid" style="display:none">
+                <div class="box-header">
+                    <h3 class="box-title">Updating Record</h3>
+                </div>
+                <div class="box-body">
+                    Saving record,please wait...
+                </div>
+                <!-- /.box-body -->
+                <!-- Loading (remove the following to stop the loading)-->
+                <div class="overlay">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <!-- end loading -->
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<script>
+    function loadlga() {
+
+        var itemSelected = $("#STATES_RES").val();
+
+        var queryString = "state_id=" + itemSelected;
+
+       // $("#lgloading").css({ 'display': 'block' });
+        $("#lgloading").show();
+       // alert(itemSelected);
+        $.ajax({url: "@Url.Action("loadlga", "Dynamic")",
+            type: 'get',data: queryString,cache: false,
+        success: function (data) {
+            // alert(data);
+
+            $("#lgloading").css({ 'display': 'none' });
+
+            document.getElementById("LGA").innerHTML = "";
+
+            document.getElementById("LGA").innerHTML = data;
+        }
+    }
+                   );
+
+
+
+
+    }
+
+
+    function getAge() {
+        var dateString  = $('#BioData_DATE_OF_BIRTH').val();
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        if(age<0)
+        {
+            age = 0;
+        }
+
+        $('#BioData_AGE').val(age);        
+    }
+
+    function ApproveBioData(){
+    
+        //  alert('Hello');saving display
+        // document.getElementById("display").innerHTML = "";
+        $("#display").css({ 'display': 'none' });
+        $("#update").css({ 'display': 'none' });
+        $("#saving").css({ 'display': 'block' });
+
+        var frm = $('#biodata');
+
+        var url = "@Url.Action("ApproveBioData", "Dynamic")"; // the script where you handle the form input.
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#biodata").serialize(), // serializes the form's elements.
+            success: function (data) {
+                // alert(data); // show response from the server.
+                $("#saving").css({ 'display': 'none' });
+                $("#display").css({ 'display': 'none' });
+                $("#update").css({ 'display': 'block' });
+                //update
+                document.getElementById("update").innerHTML = "";
+                document.getElementById("update").innerHTML = data;
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    
+    
+    
+    }
+
+    function approveAccInfo() {
+
+        //  alert('Hello');saving display
+        // document.getElementById("display").innerHTML = "";
+        $("#display").css({ 'display': 'none' });
+        $("#update").css({ 'display': 'none' });
+        $("#saving").css({ 'display': 'block' });
+
+        var frm = $('#biodata');
+
+        var url = "@Url.Action("approveAccInfodata", "Dynamic")"; // the script where you handle the form input.
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#biodata").serialize(), // serializes the form's elements.
+            success: function (data) {
+                // alert(data); // show response from the server.
+                $("#saving").css({ 'display': 'none' });
+                $("#display").css({ 'display': 'none' });
+                $("#update").css({ 'display': 'block' });
+                //update
+                document.getElementById("update").innerHTML = "";
+                document.getElementById("update").innerHTML = data;
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    }
+
+
+</script>

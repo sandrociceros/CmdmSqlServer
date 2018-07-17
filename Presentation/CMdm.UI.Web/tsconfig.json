@@ -1,0 +1,22 @@
+﻿{
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true,
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowUnreachableCode": true
+   
+  },
+    "include": [
+      "scripts"
+    ],
+  "exclude": [
+    "typings"
+  ],
+    "typeAcquisition": {
+      "enable": true 
+    }
+  }

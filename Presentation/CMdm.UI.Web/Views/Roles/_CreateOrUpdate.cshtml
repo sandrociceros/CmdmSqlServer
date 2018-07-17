@@ -1,0 +1,73 @@
+﻿@model CMdm.Data.Rbac.CM_USER_ROLES
+@Html.ValidationSummary(true)
+@Html.HiddenFor(model => model.ROLE_ID)
+
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.LabelFor(model => model.ROLE_NAME)
+                            </div>
+                            <div class="col-md-9">
+                                @Html.CMdmEditorFor(model => model.ROLE_NAME, required: true)
+                                @Html.ValidationMessageFor(model => model.ROLE_NAME)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.USER_LEVEL)
+                        </div>
+                        <div class="col-md-9">
+                            @*@Html.EditorFor(model => model.USER_LEVEL, new { htmlAttributes = new { min = 0, required = "required" } })*@
+                            @Html.CMdmDropDownListFor(model => model.USER_LEVEL, (IEnumerable<SelectListItem>)ViewBag.USER_LEVELS)
+                            @Html.ValidationMessageFor(model => model.USER_LEVEL)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.PSWD_LIFE_DAYS)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.PSWD_LIFE_DAYS, new { htmlAttributes = new { min = 0, required = "required" } })
+                            @Html.ValidationMessageFor(model => model.PSWD_LIFE_DAYS)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.IS_DEFAULT)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.CMdmEditorFor(model => model.IS_DEFAULT, required: true)
+                            @Html.ValidationMessageFor(model => model.IS_DEFAULT)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.CHECKER_ID)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.CHECKER_ID, (IEnumerable<SelectListItem>)ViewBag.CHECKERS, "--None--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CHECKER_ID)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('input[type="number"]').change(function(e){
+            $('input[type="number"]').replace(/\D/g, "");
+            $('input[type="number"]').min = "0";
+        });
+    });
+</script>

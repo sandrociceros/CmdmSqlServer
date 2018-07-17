@@ -1,0 +1,285 @@
+﻿@{
+    ViewBag.Title = "Bank Dashboard";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Home/DashboardV2/menu")
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Current State Data Quality Report</h3>
+                
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="text-center">
+                            <strong>Input Data</strong>
+                        </p>
+                        <div class="box box-widget widget-user">
+                            <div class="widget-user-header bg-aqua-active">
+                                <h3 class="widget-user-username">Data File</h3>
+                                <h5 class="widget-user-desc">Current Status</h5>
+
+                                <p class="text-right info-box-number">
+                                    
+                                    <strong>31.46%</strong>
+                                </p>
+                            </div>
+
+                            <div class="box-footer">
+                                <div class="row">
+                                    <div class="col-sm-4 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">4,959,386</h5>
+                                            <span class="description-text">Total Customers</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">8</h5>
+                                            <span class="description-text">ATTRIBUTES</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="description-block">
+                                            <h5 class="description-header">1</h5>
+                                            <span class="description-text">Data Sources</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box box-default">
+                            <p class="text-center">
+                                <strong>Data Quality Index</strong>
+                            </p>
+                              
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="chart-responsive">
+                                            <canvas id="pieChart" height="150"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="chart-legend clearfix">
+                                            <li><i class="fa fa-circle-o text-red"></i> Date of Birth</li>
+                                            <li><i class="fa fa-circle-o text-green"></i> Addresses</li>
+                                            <li><i class="fa fa-circle-o text-yellow"></i> Phone number</li>
+                                            <li><i class="fa fa-circle-o text-aqua"></i> Email</li>
+                                            <li><i class="fa fa-circle-o text-light-blue"></i> Gender</li>
+                                            <li><i class="fa fa-circle-o text-gray"></i> Names</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li>
+                                        <a href="#">
+                                            Date of Birth
+                                            @*<span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span>*@
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Gender <span class="pull-right text-green">
+                                            @*<i class="fa fa-angle-up"></i> 4%</span>*@
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Names
+                                            @*<span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span>*@
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Email
+                                            @*<span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span>*@
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="description-block border-right">
+                            <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
+                            <h5 class="description-header">$35,210.43</h5>
+                            <span class="description-text">TOTAL REVENUE</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="description-block border-right">
+                            <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
+                            <h5 class="description-header">$10,390.90</h5>
+                            <span class="description-text">TOTAL COST</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="description-block border-right">
+                            <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
+                            <h5 class="description-header">$24,813.53</h5>
+                            <span class="description-text">TOTAL PROFIT</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="description-block">
+                            <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
+                            <h5 class="description-header">1200</h5>
+                            <span class="description-text">GOAL COMPLETIONS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">Visitors Report</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <div class="box-body no-padding">
+                <div class="row">
+                    <div class="col-md-9 col-sm-8">
+                        <div class="pad">
+                            <div id="world-map-markers" style="height: 325px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                        <div class="pad box-pane-right bg-green" style="min-height: 280px">
+                            <div class="description-block margin-bottom">
+                                <div class="sparkbar pad" data-color="#fff">90,70,90,70,75,80,70</div>
+                                <h5 class="description-header">8390</h5>
+                                <span class="description-text">Visits</span>
+                            </div>
+                            <div class="description-block margin-bottom">
+                                <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                                <h5 class="description-header">30%</h5>
+                                <span class="description-text">Referrals</span>
+                            </div>
+                            <div class="description-block">
+                                <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                                <h5 class="description-header">70%</h5>
+                                <span class="description-text">Organic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-4">
+        <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Inventory</span>
+                <span class="info-box-number">5,200</span>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 50%"></div>
+                </div>
+                <span class="progress-description">
+                    50% Increase in 30 Days
+                </span>
+            </div>
+        </div>
+        <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Mentions</span>
+                <span class="info-box-number">92,050</span>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 20%"></div>
+                </div>
+                <span class="progress-description">
+                    20% Increase in 30 Days
+                </span>
+            </div>
+        </div>
+        <div class="info-box bg-red">
+            <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Downloads</span>
+                <span class="info-box-number">114,381</span>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                    70% Increase in 30 Days
+                </span>
+            </div>
+        </div>
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Direct Messages</span>
+                <span class="info-box-number">163,921</span>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 40%"></div>
+                </div>
+                <span class="progress-description">
+                    40% Increase in 30 Days
+                </span>
+            </div>
+        </div>
+        
+        
+    </div>
+   
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="chart">
+            <canvas id="salesChart" style="height: 180px;"></canvas>
+        </div>
+    </div>
+   
+</div>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/jquery-ui/js")
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+
+    @Scripts.Render("~/AdminLTE/plugins/chartjs/js")
+    @Scripts.Render("~/AdminLTE/plugins/jvectormap/js")
+    @Scripts.Render("~/AdminLTE/plugins/sparkline/js")
+    @Scripts.Render("~/Scripts/Home/DashboardV2")
+}
