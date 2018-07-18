@@ -16,13 +16,13 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">recordId identifier</param>
         /// <returns>Vendor</returns>
-        IList<CustSegment> GetCustSegmentbyIds(int[] recordIds);
+        IList<CustSegment> GetCustSegmentbyIds(Int64[] recordIds);
         /// <summary>
         /// Gets a Queitem by item reference identifier
         /// </summary>
         /// <param name="recordId">que identifier</param>
         /// <returns>Vendor</returns>
-        CustSegment GetCustSegmentbyId(int recordId);
+        CustSegment GetCustSegmentbyId(Int64 recordId);
         /// <summary>
         /// Gets all items
         /// </summary>

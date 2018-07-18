@@ -53,7 +53,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         [DisplayName("Subsegment ")]
         public string SUBSEGMENT { get; set; }
         [DisplayName("Corporate ID ")]
-        public int? CORP_ID { get; set; }
+        public Int64? CORP_ID { get; set; }
         [DisplayName("Scheme Code ")]
         public string SCHEME_CODE { get; set; }
         [DisplayName("Account No ")]
@@ -62,7 +62,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         public string CUSTOMER_TYPE { get; set; }
         [DisplayName("Reason")]
         public string REASON { get; set; }
-        public int Id
+        public Int64 Id
         {
             get; set;
         }

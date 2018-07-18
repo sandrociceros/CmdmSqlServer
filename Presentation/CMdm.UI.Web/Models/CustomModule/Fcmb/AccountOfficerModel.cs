@@ -45,7 +45,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         public string BROKER_NAME { get; set; }
         [DisplayName("Run Date")]
         public DateTime? RUN_DATE { get; set; }
-        public int Id
+        public Int64 Id
         {
             get; set;
         }

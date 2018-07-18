@@ -16,13 +16,13 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">recordId identifier</param>
         /// <returns>Vendor</returns>
-        IList<AccountOfficer> GetAccountOfficerbyIds(int[] recordIds);
+        IList<AccountOfficer> GetAccountOfficerbyIds(Int64[] recordIds);
         /// <summary>
         /// Gets a Queitem by item reference identifier
         /// </summary>
         /// <param name="recordId">que identifier</param>
         /// <returns>Vendor</returns>
-        AccountOfficer GetAccOffbyId(int recordId);
+        AccountOfficer GetAccOffbyId(Int64 recordId);
         /// <summary>
         /// Gets all items
         /// </summary>

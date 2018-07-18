@@ -227,7 +227,7 @@ namespace CMdm.UI.Web.Controllers
             {
                 var ids = selectedIds
                     .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(x => Convert.ToInt32(x))
+                    .Select(x => Convert.ToInt64(x))
                     .ToArray();
                 docs.AddRange(_dqQueService.GetCustSegmentbyIds(ids));
             }

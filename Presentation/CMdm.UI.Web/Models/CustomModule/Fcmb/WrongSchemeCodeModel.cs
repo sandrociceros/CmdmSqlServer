@@ -34,7 +34,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         public string CUSTOMER_TYPE { get; set; }
         [DisplayName("Run Date")]
         public DateTime? DATE_OF_RUN { get; set; }
-        public int Id
+        public Int64 Id
         {
             get; set;
         }

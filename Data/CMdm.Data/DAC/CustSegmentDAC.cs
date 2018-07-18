@@ -45,7 +45,7 @@ namespace CMdm.Data.DAC
                 db.SaveChanges();
             }
         }
-        public virtual IList<CustSegment> SelectByIds(int[] recordIds)
+        public virtual IList<CustSegment> SelectByIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return new List<CustSegment>();
@@ -68,7 +68,7 @@ namespace CMdm.Data.DAC
             }
 
         }
-        public CustSegment SelectCustSegmentById(int recordId)
+        public CustSegment SelectCustSegmentById(Int64 recordId)
         {
             using (var db = new AppDbContext())
             {

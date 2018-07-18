@@ -10,7 +10,7 @@ namespace CMdm.Entities.Domain.CustomModule.Fcmb
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID { get; set; }
+        public Int64 ID { get; set; }
         public string ORGKEY { get; set; }
         public string CUST_FIRST_NAME { get; set; }
         public string CUST_MIDDLE_NAME { get; set; }
@@ -28,7 +28,7 @@ namespace CMdm.Entities.Domain.CustomModule.Fcmb
         public string SUBSECTOR { get; set; }
         public string SUBSECTORNAME { get; set; }
         public string SUBSEGMENT { get; set; }
-        public int? CORP_ID { get; set; }
+        public Int64? CORP_ID { get; set; }
         public string SCHEME_CODE { get; set; }
         public string ACCOUNT_NO { get; set; }
         public string CUSTOMER_TYPE { get; set; }

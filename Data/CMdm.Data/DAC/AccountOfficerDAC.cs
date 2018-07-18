@@ -47,7 +47,7 @@ namespace CMdm.Data.DAC
                 db.SaveChanges();
             }
         }
-        public virtual IList<AccountOfficer> SelectByIds(int[] recordIds)
+        public virtual IList<AccountOfficer> SelectByIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return new List<AccountOfficer>();
@@ -70,7 +70,7 @@ namespace CMdm.Data.DAC
             }
 
         }
-        public AccountOfficer SelectAccountOfficerById(int recordId)
+        public AccountOfficer SelectAccountOfficerById(Int64 recordId)
         {
             using (var db = new AppDbContext())
             {

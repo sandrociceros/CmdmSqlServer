@@ -47,7 +47,7 @@ namespace CMdm.Data.DAC
                 db.SaveChanges();
             }
         }
-        public virtual IList<WrongSchemeCode> SelectByIds(int[] recordIds)
+        public virtual IList<WrongSchemeCode> SelectByIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return new List<WrongSchemeCode>();
@@ -70,7 +70,7 @@ namespace CMdm.Data.DAC
             }
 
         }
-        public WrongSchemeCode SelectWrongSchemeCodeById(int recordId)
+        public WrongSchemeCode SelectWrongSchemeCodeById(Int64 recordId)
         {
             using (var db = new AppDbContext())
             {
