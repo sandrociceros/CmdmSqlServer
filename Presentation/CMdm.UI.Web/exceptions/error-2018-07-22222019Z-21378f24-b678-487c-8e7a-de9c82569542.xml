@@ -1,0 +1,168 @@
+﻿<error errorId="21378f24-b678-487c-8e7a-de9c82569542" application="/LM/W3SVC/3/ROOT" host="SIRLAM-PC" type="System.Web.HttpException" message="Could not load type 'CMdm.UI.Web.DQI.DQIProfileDirty'." source="System.Web" detail="System.Web.HttpParseException (0x80004005): Could not load type 'CMdm.UI.Web.DQI.DQIProfileDirty'. ---&gt; System.Web.HttpParseException (0x80004005): Could not load type 'CMdm.UI.Web.DQI.DQIProfileDirty'. ---&gt; System.Web.HttpException (0x80004005): Could not load type 'CMdm.UI.Web.DQI.DQIProfileDirty'.&#xD;&#xA;   at System.Web.UI.TemplateParser.GetType(String typeName, Boolean ignoreCase, Boolean throwOnError)&#xD;&#xA;   at System.Web.UI.TemplateParser.ProcessInheritsAttribute(String baseTypeName, String codeFileBaseTypeName, String src, Assembly assembly)&#xD;&#xA;   at System.Web.UI.TemplateParser.PostProcessMainDirectiveAttributes(IDictionary parseData)&#xD;&#xA;   at System.Web.UI.TemplateParser.ProcessException(Exception ex)&#xD;&#xA;   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)&#xD;&#xA;   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)&#xD;&#xA;   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)&#xD;&#xA;   at System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)&#xD;&#xA;   at System.Web.UI.TemplateParser.ParseInternal()&#xD;&#xA;   at System.Web.UI.TemplateParser.Parse()&#xD;&#xA;   at System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()&#xD;&#xA;   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)&#xD;&#xA;   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()&#xD;&#xA;   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()&#xD;&#xA;   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)&#xD;&#xA;   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)&#xD;&#xA;   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)&#xD;&#xA;   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)&#xD;&#xA;   at Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)&#xD;&#xA;   at Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)&#xD;&#xA;   at Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)&#xD;&#xA;   at Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)&#xD;&#xA;   at Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)&#xD;&#xA;   at Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)&#xD;&#xA;   at Castle.Proxies.Invocations.RouteBase_GetRouteData.InvokeMethodOnTarget()&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.CastleInvocationToAlternateMethodContextAdapter.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensions.AlternateMethodContextExtensions.TryProceedWithTimer(IAlternateMethodContext context, TimerResult&amp; timerResult)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateMethod.NewImplementation(IAlternateMethodContext context)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateTypeToCastleInterceptorAdapter.Intercept(IInvocation invocation)&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Castle.Proxies.RouteBaseProxy.GetRouteData(HttpContextBase httpContext)&#xD;&#xA;   at System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)&#xD;&#xA;   at System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)&#xD;&#xA;   at System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)&#xD;&#xA;   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="omniuser" time="2018-07-22T22:20:19.2377377Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;Parser Error&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;Server Error in '/' Application.&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;Parser Error&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Description: &lt;/b&gt;An error occurred during the parsing of a resource required to service this request.   Please review the following specific parse error details and modify your source file appropriately.&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Parser Error Message: &lt;/b&gt;Could not load type 'CMdm.UI.Web.DQI.DQIProfileDirty'.&lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Source Error:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;&lt;font color=red&gt;Line 1:  &amp;lt;%@ Page Title=&amp;quot;&amp;quot; Language=&amp;quot;C#&amp;quot; UnobtrusiveValidationMode=&amp;quot;None&amp;quot;  MasterPageFile=&amp;quot;~/Wiz.Master&amp;quot; AutoEventWireup=&amp;quot;true&amp;quot; CodeBehind=&amp;quot;DQIProfileDirty.aspx.cs&amp;quot; Inherits=&amp;quot;CMdm.UI.Web.DQI.DQIProfileDirty&amp;quot; %&amp;gt;&#xD;&#xA;&lt;/font&gt;Line 2:  &#xD;&#xA;Line 3:  &amp;lt;%@ MasterType VirtualPath=&amp;quot;~/Wiz.Master&amp;quot; %&amp;gt;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Source File: &lt;/b&gt; /DQI/DQIProfileDirty.aspx&lt;b&gt; &amp;nbsp;&amp;nbsp; Line: &lt;/b&gt; 1&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8,en-GB;q=0.6&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=ad5UTV6gUH8T2-yLD9-ZMlGAGWPHwVGmnH9AST8gIcQy1majR1fGpGJUuzMw6QSZz5Vz5SDTCsjn2AAqIhwgGBtAGor9bLngpBj8kFFBdYE1; .ASPXAUTH=A1688AC9318E1C322F91A390C5CF9059AFA52F20A1BED774F43C98FD03B61AE9BF6BF236ECD67E336BFEAD251398D8E92C784992F5E489BC9E79D56E85F221671F5154B1DAF37B20125C240A167A09275855C50CDFF8C7676F78C0DB74D69F07&#xD;&#xA;HTTP_HOST:localhost:18459&#xD;&#xA;HTTP_REFERER:http://localhost:18459/Rules/List&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/7.0.185.1002 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.8,en-GB;q=0.6&#xD;&#xA;Cookie: __RequestVerificationToken=ad5UTV6gUH8T2-yLD9-ZMlGAGWPHwVGmnH9AST8gIcQy1majR1fGpGJUuzMw6QSZz5Vz5SDTCsjn2AAqIhwgGBtAGor9bLngpBj8kFFBdYE1; .ASPXAUTH=A1688AC9318E1C322F91A390C5CF9059AFA52F20A1BED774F43C98FD03B61AE9BF6BF236ECD67E336BFEAD251398D8E92C784992F5E489BC9E79D56E85F221671F5154B1DAF37B20125C240A167A09275855C50CDFF8C7676F78C0DB74D69F07&#xD;&#xA;Host: localhost:18459&#xD;&#xA;Referer: http://localhost:18459/Rules/List&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/7.0.185.1002 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\salam\Documents\Visual Studio 2017\Projects\CMDM_SQL\Presentation\CMdm.UI.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="omniuser" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="omniuser" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/DQI/DQIProfileDirty" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\salam\Documents\Visual Studio 2017\Projects\CMDM_SQL\Presentation\CMdm.UI.Web\DQI\DQIProfileDirty" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="62093" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/DQI/DQIProfileDirty" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="18459" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/DQI/DQIProfileDirty" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8,en-GB;q=0.6" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=ad5UTV6gUH8T2-yLD9-ZMlGAGWPHwVGmnH9AST8gIcQy1majR1fGpGJUuzMw6QSZz5Vz5SDTCsjn2AAqIhwgGBtAGor9bLngpBj8kFFBdYE1; .ASPXAUTH=A1688AC9318E1C322F91A390C5CF9059AFA52F20A1BED774F43C98FD03B61AE9BF6BF236ECD67E336BFEAD251398D8E92C784992F5E489BC9E79D56E85F221671F5154B1DAF37B20125C240A167A09275855C50CDFF8C7676F78C0DB74D69F07" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:18459" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:18459/Rules/List" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/7.0.185.1002 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="ad5UTV6gUH8T2-yLD9-ZMlGAGWPHwVGmnH9AST8gIcQy1majR1fGpGJUuzMw6QSZz5Vz5SDTCsjn2AAqIhwgGBtAGor9bLngpBj8kFFBdYE1" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="A1688AC9318E1C322F91A390C5CF9059AFA52F20A1BED774F43C98FD03B61AE9BF6BF236ECD67E336BFEAD251398D8E92C784992F5E489BC9E79D56E85F221671F5154B1DAF37B20125C240A167A09275855C50CDFF8C7676F78C0DB74D69F07" />
+    </item>
+  </cookies>
+</error>
