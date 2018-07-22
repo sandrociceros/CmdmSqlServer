@@ -90,7 +90,7 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">recordId identifier</param>
         /// <returns>Vendor</returns>
-        public virtual IList<MultipleRefCode> GetMultipleRefCodebyIds(int[] recordIds)
+        public virtual IList<MultipleRefCode> GetMultipleRefCodebyIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return null;
@@ -102,7 +102,7 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">MdmDQQue identifier</param>
         /// <returns>Vendor</returns>
-        public virtual MultipleRefCode GetMultRefCodebyId(int recordId)
+        public virtual MultipleRefCode GetMultRefCodebyId(Int64 recordId)
         {
             if (recordId == 0)
                 return null;
@@ -207,7 +207,7 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">recordId identifier</param>
         /// <returns>Vendor</returns>
-        public virtual IList<DistinctRefCode> GetDistinctRefCodebyIds(int[] recordIds)
+        public virtual IList<DistinctRefCode> GetDistinctRefCodebyIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return null;
@@ -219,7 +219,7 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">MdmDQQue identifier</param>
         /// <returns>Vendor</returns>
-        public virtual DistinctRefCode GetDistRefCodebyId(int recordId)
+        public virtual DistinctRefCode GetDistRefCodebyId(Int64 recordId)
         {
             if (recordId == 0)
                 return null;

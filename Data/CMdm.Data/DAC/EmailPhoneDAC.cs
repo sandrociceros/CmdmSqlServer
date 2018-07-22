@@ -47,7 +47,7 @@ namespace CMdm.Data.DAC
                 db.SaveChanges();
             }
         }
-        public virtual IList<EmailPhone> SelectByIds(int[] recordIds)
+        public virtual IList<EmailPhone> SelectByIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return new List<EmailPhone>();
@@ -70,7 +70,7 @@ namespace CMdm.Data.DAC
             }
 
         }
-        public EmailPhone SelectEmailPhoneById(int recordId)
+        public EmailPhone SelectEmailPhoneById(Int64 recordId)
         {
             using (var db = new AppDbContext())
             {

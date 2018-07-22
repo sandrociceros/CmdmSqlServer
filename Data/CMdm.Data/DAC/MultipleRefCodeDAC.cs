@@ -47,7 +47,7 @@ namespace CMdm.Data.DAC
                 db.SaveChanges();
             }
         }
-        public virtual IList<MultipleRefCode> SelectByIds(int[] recordIds)
+        public virtual IList<MultipleRefCode> SelectByIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return new List<MultipleRefCode>();
@@ -70,7 +70,7 @@ namespace CMdm.Data.DAC
             }
 
         }
-        public MultipleRefCode SelectMultipleRefCodeById(int recordId)
+        public MultipleRefCode SelectMultipleRefCodeById(Int64 recordId)
         {
             using (var db = new AppDbContext())
             {

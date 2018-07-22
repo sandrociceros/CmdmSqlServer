@@ -14,7 +14,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         [DisplayName("Ref Code")]
         public string REF_CODE { get; set; }
 
-        public int Id
+        public Int64 Id
         {
             get; set;
         }

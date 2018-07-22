@@ -220,6 +220,7 @@ namespace CMdm.UI.Web.Helpers.CrossCutting.Security
                             {
                                 localuser = null;
                             }
+                            _messagingService.SaveUserActivity(localuser.PROFILE_ID, "Logged into CMDM", DateTime.Now);
                         }
 
                         //String.Compare(u.COD_PASSWORD, password, StringComparison.OrdinalIgnoreCase) == 0Session["LastLoginDate"] = dtLastLogin;

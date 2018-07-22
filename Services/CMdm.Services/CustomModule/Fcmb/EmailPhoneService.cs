@@ -88,7 +88,7 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">recordId identifier</param>
         /// <returns>Vendor</returns>
-        public virtual IList<EmailPhone> GetEmailPhonebyIds(int[] recordIds)
+        public virtual IList<EmailPhone> GetEmailPhonebyIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return null;
@@ -100,7 +100,7 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">MdmDQQue identifier</param>
         /// <returns>Vendor</returns>
-        public virtual EmailPhone GetEmailPhonebyId(int recordId)
+        public virtual EmailPhone GetEmailPhonebyId(Int64 recordId)
         {
             if (recordId == 0)
                 return null;

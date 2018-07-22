@@ -10,7 +10,7 @@ namespace CMdm.Entities.Domain.CustomModule.Fcmb
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID { get; set; }
+        public Int64 ID { get; set; }
         public string ACCOUNTOFFICER_NAME { get; set; }
         public string REF_CODE { get; set; }
     }

@@ -17,13 +17,13 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">recordId identifier</param>
         /// <returns>Vendor</returns>
-        IList<MultipleRefCode> GetMultipleRefCodebyIds(int[] recordIds);
+        IList<MultipleRefCode> GetMultipleRefCodebyIds(Int64[] recordIds);
         /// <summary>
         /// Gets a Queitem by item reference identifier
         /// </summary>
         /// <param name="recordId">que identifier</param>
         /// <returns>Vendor</returns>
-        MultipleRefCode GetMultRefCodebyId(int recordId);
+        MultipleRefCode GetMultRefCodebyId(Int64 recordId);
         /// <summary>
         /// Gets all items
         /// </summary>
@@ -42,13 +42,13 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">recordId identifier</param>
         /// <returns>Vendor</returns>
-        IList<DistinctRefCode> GetDistinctRefCodebyIds(int[] recordIds);
+        IList<DistinctRefCode> GetDistinctRefCodebyIds(Int64[] recordIds);
         /// <summary>
         /// Gets a Queitem by item reference identifier
         /// </summary>
         /// <param name="recordId">que identifier</param>
         /// <returns>Vendor</returns>
-        DistinctRefCode GetDistRefCodebyId(int recordId);
+        DistinctRefCode GetDistRefCodebyId(Int64 recordId);
         /// <summary>
         /// Gets all items
         /// </summary>

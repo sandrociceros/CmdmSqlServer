@@ -10,9 +10,9 @@ namespace CMdm.Entities.Domain.CustomModule.Fcmb
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID { get; set; }
-        public int ACTIVITY_ID { get; set; }
-        public int USER_ID { get; set; }
+        public Int64 ID { get; set; }
+        public Int64 ACTIVITY_ID { get; set; }
+        public Int64 USER_ID { get; set; }
         public string USER_NAME { get; set; }
         public string FULLNAME { get; set; }
         public string ACTIVITY_DESC { get; set; }

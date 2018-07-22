@@ -88,7 +88,7 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">recordId identifier</param>
         /// <returns>Vendor</returns>
-        public virtual IList<WrongSegment> GetWrongSegmentbyIds(int[] recordIds)
+        public virtual IList<WrongSegment> GetWrongSegmentbyIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return null;
@@ -100,7 +100,7 @@ namespace CMdm.Services.CustomModule.Fcmb
         /// </summary>
         /// <param name="recordId">MdmDQQue identifier</param>
         /// <returns>Vendor</returns>
-        public virtual WrongSegment GetWrongSegbyId(int recordId)
+        public virtual WrongSegment GetWrongSegbyId(Int64 recordId)
         {
             if (recordId == 0)
                 return null;

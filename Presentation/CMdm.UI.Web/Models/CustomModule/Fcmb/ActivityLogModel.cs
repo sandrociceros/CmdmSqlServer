@@ -15,9 +15,9 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
             Branches = new List<SelectListItem>();
         }
         [DisplayName("Activity ID")]
-        public int ACTIVITY_ID { get; set; }
+        public Int64 ACTIVITY_ID { get; set; }
         [DisplayName("User ID")]
-        public int USER_ID { get; set; }
+        public Int64 USER_ID { get; set; }
         [DisplayName("Username")]
         public string USER_NAME { get; set; }
         [DisplayName("Fullname")]
@@ -39,7 +39,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         [UIHint("DateNullable")]
         public DateTime? CreatedOnTo { get; set; }
 
-        public int Id
+        public Int64 Id
         {
             get; set;
         }

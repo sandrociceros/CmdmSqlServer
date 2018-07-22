@@ -47,7 +47,7 @@ namespace CMdm.Data.DAC
                 db.SaveChanges();
             }
         }
-        public virtual IList<ActivityLog> SelectByIds(int[] recordIds)
+        public virtual IList<ActivityLog> SelectByIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return new List<ActivityLog>();
@@ -70,7 +70,7 @@ namespace CMdm.Data.DAC
             }
 
         }
-        public ActivityLog SelectActivityLogById(int recordId)
+        public ActivityLog SelectActivityLogById(Int64 recordId)
         {
             using (var db = new AppDbContext())
             {

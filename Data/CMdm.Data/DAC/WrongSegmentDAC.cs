@@ -47,7 +47,7 @@ namespace CMdm.Data.DAC
                 db.SaveChanges();
             }
         }
-        public virtual IList<WrongSegment> SelectByIds(int[] recordIds)
+        public virtual IList<WrongSegment> SelectByIds(Int64[] recordIds)
         {
             if (recordIds == null || recordIds.Length == 0)
                 return new List<WrongSegment>();
@@ -70,7 +70,7 @@ namespace CMdm.Data.DAC
             }
 
         }
-        public WrongSegment SelectWrongSegmentById(int recordId)
+        public WrongSegment SelectWrongSegmentById(Int64 recordId)
         {
             using (var db = new AppDbContext())
             {

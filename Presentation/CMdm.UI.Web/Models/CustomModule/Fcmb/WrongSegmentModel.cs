@@ -38,7 +38,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         [DisplayName("Subsegment Name ")]
         public string SUBSEGMENTNAME { get; set; }
         [DisplayName("Corporate ID ")]
-        public int? CORP_ID { get; set; }
+        public Int64? CORP_ID { get; set; }
         [DisplayName("Date of Run ")]
         public DateTime? DATE_OF_RUN { get; set; }
         [DisplayName("Scheme Code ")]
@@ -46,7 +46,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         [DisplayName("Account Number ")]
         public string ACCOUNTNO { get; set; }
 
-        public int Id
+        public Int64 Id
         {
             get; set;
         }
