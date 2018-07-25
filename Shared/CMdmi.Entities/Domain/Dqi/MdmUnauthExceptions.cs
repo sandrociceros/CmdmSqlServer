@@ -55,6 +55,7 @@ namespace CMdm.Entities.Domain.Dqi
         public string SURNAME { get; set; }
         public string OTHER_NAME { get; set; }
         public int? TIER { get; set; }
+        public int? QUEUE_STATUS { get; set; }
 
     }
 }

@@ -810,7 +810,7 @@ namespace CMdm.Data.DAC
             }
         }
 
-        public List<CustExceptionsModel> SelectBrnUnauthIssues(string name, int startRowIndex, int maximumRows, string sortExpression, string customerId = null, int? ruleId = null, int? catalogId = null, string BranchId = null, IssueStatus? status = null, int? priority = null, int? tier = null)
+        public List<CustExceptionsModel> SelectBrnUnauthIssues(string name, int startRowIndex, int maximumRows, string sortExpression, string customerId = null, int? ruleId = null, int? catalogId = null, string BranchId = null, IssueStatus? status = null, int? priority = null, int? tier = null, int? queue_status = null)
         {
             //DateTime? createdOnFrom = null,            DateTime? createdOnTo = null,
             //var db2 = new AppDbContext();
@@ -928,6 +928,11 @@ namespace CMdm.Data.DAC
                 {
                     int tr = (int)tier.Value;
                     query = query.Where(d => d.TIER == tr);
+                }
+                if (queue_status.HasValue && queue_status > 0)
+                {
+                    int queue = (int)queue_status.Value;
+                    query = query.Where(d => d.QUEUE_STATUS == queue);
                 }
                 // Append filters.
                 //query = AppendFilters(query, name);

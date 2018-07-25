@@ -48,8 +48,10 @@ namespace CMdm.UI.Web.Controllers
                 return RedirectToAction("AuthList", "DQQue");
             }
 
+            string[] amu_columns = { "SURNAME", "FIRSTNAME", "OTHER_NAME", "DATE_OF_BIRTH", "MOBILE_NO", "EMAIL_ADDRESS" };
+
             #region Biodata
-                IndividualBioDataModel indvdmodel = new IndividualBioDataModel();
+            IndividualBioDataModel indvdmodel = new IndividualBioDataModel();
                 indvdmodel  = (from c in _db.CDMA_INDIVIDUAL_BIO_DATA
                          where c.CUSTOMER_NO == querecord.CUST_ID
                               where c.AUTHORISED == "U"
@@ -98,6 +100,10 @@ namespace CMdm.UI.Web.Controllers
                         if (item2.PROPERTYNAME == item.Name)
                         {
                             ModelState.AddModelError("Biodata." + item.Name, string.Format("Field has been modified, value was {0}", item2.OLDVALUE));
+                        }
+                        if (amu_columns.Contains(item.Name))
+                        {
+                            Session["AMU_NEEDED"] = "true";
                         }
                     }
 
@@ -178,6 +184,10 @@ namespace CMdm.UI.Web.Controllers
                         if (item2.PROPERTYNAME == item.Name)
                         {
                             ModelState.AddModelError("contact." + item.Name, string.Format("Field has been modified, value was {0}", item2.OLDVALUE));
+                        }
+                        if (amu_columns.Contains(item.Name))
+                        {
+                            Session["AMU_NEEDED"] = "true";
                         }
                     }
 
@@ -1292,18 +1302,34 @@ namespace CMdm.UI.Web.Controllers
             }
             else
             {
-                int que_status = 0;
-
+                string[] csm = { "CHECKER", "CSM" };
+                string[] amu = { "AMU" };
                 string userRole = identity.UserRoleName;
-                if (userRole.ToUpper().Contains("CSM"))
-                    que_status = 1;
-                else if (userRole.ToUpper().Contains("AMU CHECKER"))
-                    que_status = 2;
-                else que_status = 1;
 
-                _dqQueService.ApproveExceptionQueItems(exceptionId.ToString(),  identity.ProfileId);
-                SuccessNotification("Customer record Authorised");
-                _messageService.LogEmailJob(identity.ProfileId, indivmodel.BioData.CUSTOMER_NO, MessageJobEnum.MailType.Authorize, Convert.ToInt32(indivmodel.BioData.LastUpdatedby));
+                if (csm.Contains(userRole.ToUpper()))
+                {
+                    if(Session["AMU_NEEDED"] != null && Session["AMU_NEEDED"].ToString() == "true")
+                    {
+                        _db.Database.ExecuteSqlCommand("Update cdma_individual_bio_data set QUEUE_STATUS = 2 where CUSTOMER_NO = '" + indivmodel.BioData.CUSTOMER_NO + "' ");
+                        _db.Database.ExecuteSqlCommand("Update cdma_individual_identification set QUEUE_STATUS = 2 where CUSTOMER_NO = '" + indivmodel.BioData.CUSTOMER_NO + "' ");
+                        _db.Database.ExecuteSqlCommand("Update cdma_individual_contact_detail set QUEUE_STATUS = 2 where CUSTOMER_NO = '" + indivmodel.BioData.CUSTOMER_NO + "' ");
+
+                        Session.Remove("AMU_NEEDED");
+                    }
+                    else
+                    {
+                        _dqQueService.ApproveExceptionQueItems(exceptionId.ToString(), identity.ProfileId);
+                        SuccessNotification("Customer record Authorised");
+                        _messageService.LogEmailJob(identity.ProfileId, indivmodel.BioData.CUSTOMER_NO, MessageJobEnum.MailType.Authorize, Convert.ToInt32(indivmodel.BioData.LastUpdatedby));
+                    }
+                        
+                }
+                else if (amu.Contains(userRole.ToUpper()))
+                {
+                    _dqQueService.ApproveExceptionQueItems(exceptionId.ToString(), identity.ProfileId);
+                    SuccessNotification("Customer record Authorised");
+                    _messageService.LogEmailJob(identity.ProfileId, indivmodel.BioData.CUSTOMER_NO, MessageJobEnum.MailType.Authorize, Convert.ToInt32(indivmodel.BioData.LastUpdatedby));
+                }
             }
             return RedirectToAction("AuthList", "DQQue");
         }

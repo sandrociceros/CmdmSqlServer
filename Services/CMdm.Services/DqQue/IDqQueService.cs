@@ -55,7 +55,7 @@ namespace CMdm.Services.DqQue
         IPagedList<MdmDqRunException> GetAllBrnQueIssues(string name = "", int? catalogId = null, string customerId = null, int? ruleId = null,  string BranchId = null, IssueStatus? issueStatus = null, int? priority = null, int? tier = null,
             int pageIndex = 0, int pageSize = int.MaxValue, string sortExpression = ""); //DateTime? createdOnFrom = null,        DateTime? createdOnTo = null,
         IPagedList<CustExceptionsModel> GetAllBrnUnAuthIssues(string name = "", int? catalogId = null, string customerId = null, int? ruleId = null, string BranchId = null, IssueStatus? issueStatus = null, int? priority = null, int? tier = null,
-            int pageIndex = 0, int pageSize = int.MaxValue, string sortExpression = ""); //DateTime? createdOnFrom = null,        DateTime? createdOnTo = null,
+            int? queue_status = null, int pageIndex = 0, int pageSize = int.MaxValue, string sortExpression = ""); //DateTime? createdOnFrom = null,        DateTime? createdOnTo = null,
         IPagedList<CustExceptionsModel> GetAllCorpUnAuthIssues(string name = "", int? catalogId = null, string customerId = null, int? ruleId = null, string BranchId = null, IssueStatus? issueStatus = null, int? priority = null,
             int pageIndex = 0, int pageSize = int.MaxValue, string sortExpression = ""); //DateTime? createdOnFrom = null,        DateTime? createdOnTo = null,
     }

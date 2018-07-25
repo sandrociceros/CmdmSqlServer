@@ -27,7 +27,7 @@ namespace CMdm.UI.Web.Controllers
 
         private IDqQueService _dqQueService;
         private AppDbContext db = new AppDbContext();
-        //private DQQueBiz bizrule;
+//        private DQQueBiz bizrule;
         private IPermissionsService _permissionservice;
         private CustomIdentity identity;
         private IMessagingService _messagingService;
@@ -459,6 +459,17 @@ namespace CMdm.UI.Web.Controllers
 
             int catalogId = model.CATALOG_ID;
 
+            int queue_status = 0;
+            string roleName = identity.UserRoleName;
+
+            string[] csm = {"CHECKER", "CSM"};
+            string[] amu = { "AMU" };
+
+            if (csm.Contains(roleName.ToUpper()))
+                queue_status = 1;
+            else if (amu.Contains(roleName.ToUpper()))
+                queue_status = 2;
+
             int[] corpCatalogs = { 61, 11, 12, 5, 21 };
             if (corpCatalogs.Contains(catalogId))
             {
@@ -493,7 +504,7 @@ namespace CMdm.UI.Web.Controllers
             }
             else
             {
-                var items = _dqQueService.GetAllBrnUnAuthIssues(model.SearchName, model.CATALOG_ID, model.CUST_ID, model.RULE_ID, model.BRANCH_CODE.ToString(), issueStatus, model.PRIORITY_CODE, model.TIER, command.Page - 1, command.PageSize, string.Format("{0} {1}", sort, sortDir));
+                var items = _dqQueService.GetAllBrnUnAuthIssues(model.SearchName, model.CATALOG_ID, model.CUST_ID, model.RULE_ID, model.BRANCH_CODE.ToString(), issueStatus, model.PRIORITY_CODE, model.TIER, queue_status, command.Page - 1, command.PageSize, string.Format("{0} {1}", sort, sortDir));
                 var gridModel = new DataSourceResult
                 {
                     Data = items.Select(x => new DqqueAuthListModel

@@ -47,6 +47,6 @@ namespace CMdm.Entities.ViewModels
         [DisplayName("Priority")]
         public int ISSUE_PRIORITY { get; set; }
         public int? TIER { get; set; }
-
+        public int? QUEUE_STATUS { get; set; }
     }
 }

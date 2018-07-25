@@ -203,14 +203,14 @@ namespace CMdm.Services.DqQue
         }
 
         public virtual IPagedList<CustExceptionsModel> GetAllBrnUnAuthIssues(string name = "", int? catalogId = null, string customerId = null, int? ruleId = null, string BranchId = null, IssueStatus? issueStatus = null, int? priority = null,
-             int? tier = null, int pageIndex = 0, int pageSize = int.MaxValue, string sortExpression = "")  //DateTime? createdOnFrom = null,            DateTime? createdOnTo = null,
+             int? tier = null, int? queue_status = null, int pageIndex = 0, int pageSize = int.MaxValue, string sortExpression = "")  //DateTime? createdOnFrom = null,            DateTime? createdOnTo = null,
         {
             List<CustExceptionsModel> result = default(List<CustExceptionsModel>);
 
             if (string.IsNullOrWhiteSpace(sortExpression))
                 sortExpression = "RUN_DATE DESC";
             // Step 1 - Calling Select on the DAC.
-            result = _dqqueDAC.SelectBrnUnauthIssues(name, pageIndex, pageSize, sortExpression, customerId, ruleId, catalogId, BranchId, issueStatus, priority, tier); //createdOnFrom = null, createdOnTo = null,
+            result = _dqqueDAC.SelectBrnUnauthIssues(name, pageIndex, pageSize, sortExpression, customerId, ruleId, catalogId, BranchId, issueStatus, priority, tier, queue_status); //createdOnFrom = null, createdOnTo = null,
 
 
             var queitems = new PagedList<CustExceptionsModel>(result, pageIndex, pageSize);
