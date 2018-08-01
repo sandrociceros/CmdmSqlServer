@@ -143,7 +143,7 @@ namespace CMdm.UI.Web.Controllers
             var identity = ((CustomPrincipal)User).CustomIdentity;
 
             var model = new EmailPhoneModel();
-            model.PREFERREDPHONE = id;
+            model.ORGKEY = id;
 
             //foreach (var at in _dqService.GetAllActivityTypes())
             //{
@@ -182,7 +182,7 @@ namespace CMdm.UI.Web.Controllers
             if (routeValues.ContainsKey("id"))
                 goldenRecord = (string)routeValues["id"];
 
-            var items = _dqQueService.GetAllEmailPhones(model.ORGKEY, model.ACCOUNT_NO, goldenRecord, model.EMAIL, model.CUST_FIRST_NAME, model.CUST_MIDDLE_NAME, model.CUST_LAST_NAME, model.BRANCH_CODE,
+            var items = _dqQueService.GetAllEmailPhones(goldenRecord, model.ACCOUNT_NO, model.PREFERREDPHONE, model.EMAIL, model.CUST_FIRST_NAME, model.CUST_MIDDLE_NAME, model.CUST_LAST_NAME, model.BRANCH_CODE,
                 command.Page - 1, command.PageSize, string.Format("{0} {1}", sort, sortDir));
             var gridModel = new DataSourceResult
             {

@@ -347,6 +347,7 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\RulesController.cs" />
+    <Compile Include="Controllers\SameCifController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\SiteMapController.cs" />
@@ -473,11 +474,13 @@
     <Compile Include="Models\CustomModule\Fcmb\CustSegmentModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\DistinctDocsModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\DistinctRefCodeModel.cs" />
+    <Compile Include="Models\CustomModule\Fcmb\DistinctSameCifModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\DqiSummaryModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\EmailPhoneModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\MultipleRefCodeModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\OutstandingDocModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\PhoneValidationModel.cs" />
+    <Compile Include="Models\CustomModule\Fcmb\SameCifModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\WrongSchemeCodeModel.cs" />
     <Compile Include="Models\CustomModule\Fcmb\WrongSegmentModel.cs" />
     <Compile Include="Models\Dashboard\CommonStats.cs" />
@@ -2106,6 +2109,8 @@
     <Content Include="Views\Home\Corporate.cshtml" />
     <Content Include="Views\CustInfoUpdate\Index.cshtml" />
     <Content Include="Views\CustInfoUpdate\_CreateOrUpdate.cshtml" />
+    <Content Include="Views\SameCif\AuthList.cshtml" />
+    <Content Include="Views\SameCif\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Log\List.cshtml" />

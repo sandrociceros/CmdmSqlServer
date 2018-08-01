@@ -58,7 +58,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMdm.Core", "Shared\CMdm.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMdm.BackService", "Services\CMdm.BackService\CMdm.BackService.csproj", "{47D189E8-B476-4855-8022-DE586723BD93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMdm.WebService", "CMdm.WebService\CMdm.WebService.csproj", "{7E269B58-2CD1-4EA5-9DA2-2E094FC63906}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMdm.WebService", "Services\CMdm.WebService\CMdm.WebService.csproj", "{7E269B58-2CD1-4EA5-9DA2-2E094FC63906}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

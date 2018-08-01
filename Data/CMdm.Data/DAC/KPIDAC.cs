@@ -38,12 +38,12 @@ namespace CMdm.Data.DAC
                 sbd.Append("     CMDM_COMMON_KPI.BANK_CUST_COUNT, ");
                 sbd.Append("     row_number() OVER( ");
                 sbd.Append("        ORDER BY CMDM_COMMON_KPI.TRAN_DATE DESC) AS RN ");
-                sbd.Append("    FROM CDMACONV.CMDM_COMMON_KPI ");
+                sbd.Append("    FROM CMDM_COMMON_KPI ");
                 sbd.Append("    WHERE CMDM_COMMON_KPI.BRANCH_CODE = @var_p_branch_code ");
                 sbd.Append(" )  AS fci ");
                 sbd.Append("WHERE fci.RN = 1 ");
                 SqlCommand command = new SqlCommand(sbd.ToString(), connection);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
+                //command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.Add("var_p_branch_code", SqlDbType.VarChar).Value = BranchCode;
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
@@ -141,9 +141,9 @@ namespace CMdm.Data.DAC
                 //BrnKpi kpirow = new BrnKpi();                
                 connection.Open();
 
-                string sqlSelect = "SELECT  SUM(BRN_CUST_COUNT) AS BRN_CUST_COUNT, ROUND(AVG(BRN_DQI),2) AS BRN_DQI, SUM(BRN_OPEN_EXCEPTIONS) AS BRN_OPEN_EXCEPTIONS, " +
+                string sqlSelect = "SELECT DISTINCT TIER, SUM(BRN_CUST_COUNT) AS BRN_CUST_COUNT, ROUND(AVG(BRN_DQI),2) AS BRN_DQI, SUM(BRN_OPEN_EXCEPTIONS) AS BRN_OPEN_EXCEPTIONS, " +
                 "ROUND(AVG(BRN_PCT_CONTRIB),2) AS BRN_PCT_CONTRIB, SUM(BRN_RECURRING_ERRORS) AS BRN_RECURRING_ERRORS, SUM(BRN_RESOLVED_ERRORS) AS BRN_RESOLVED_ERRORS, " +
-                "SUM(BANK_CUST_COUNT) AS BANK_CUST_COUNT, TIER " +
+                "SUM(BANK_CUST_COUNT) AS BANK_CUST_COUNT " +
                 "FROM " + schemaname + "." +  "cmdm_common_kpi WHERE BRANCH_CODE IN ("+allBranches+") " +
                 "GROUP BY TIER ORDER BY TIER ASC";
 
@@ -195,7 +195,7 @@ namespace CMdm.Data.DAC
                 string sqlSelect = "SELECT  SUM(BRN_CUST_COUNT) AS BRN_CUST_COUNT, ROUND(AVG(BRN_DQI),2) AS BRN_DQI, SUM(BRN_OPEN_EXCEPTIONS) AS BRN_OPEN_EXCEPTIONS, " +
                 "ROUND(AVG(BRN_PCT_CONTRIB),2) AS BRN_PCT_CONTRIB, SUM(BRN_RECURRING_ERRORS) AS BRN_RECURRING_ERRORS, SUM(BRN_RESOLVED_ERRORS) AS BRN_RESOLVED_ERRORS, " +
                 "SUM(BANK_CUST_COUNT) AS BANK_CUST_COUNT " +
-                "FROM cdmaconv.cmdm_corp_common_kpi WHERE BRANCH_CODE IN (" + allBranches + ") ";
+                "FROM cmdm_corp_common_kpi WHERE BRANCH_CODE IN (" + allBranches + ") ";
 
                 SqlCommand command = new SqlCommand(sqlSelect, connection);
                 SqlDataReader rdr = command.ExecuteReader();

@@ -127,8 +127,16 @@ namespace CMdm.UI.Web.Controllers
             }
             else
             {
-                ModelState.AddModelError("", Session["Response"].ToString());
-                Session.Remove("Response");
+                if(Session["Response"] != null)
+                {
+                    ModelState.AddModelError("", Session["Response"].ToString());
+                    Session.Remove("Response");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid username and/or password");
+                }
+                
             }
             return this.View();
             //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);

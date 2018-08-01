@@ -180,20 +180,20 @@
                                             width: 50
                                         },
                                         {
+                                            field: "ORGKEY",
+                                            title: "Customer ID",
+                                            width: 100,
+                                            template: '<a href="@Url.Content("~/EmailPhone/AuthList/")#=ORGKEY#">#:ORGKEY#</a>'
+                                        },
+                                        {
                                             field: "PREFERREDPHONE",
                                             title: "Preferred Phone",
-                                            width: 100,
-                                            template: '<a href="@Url.Content("~/EmailPhone/AuthList/")#=PREFERREDPHONE#">#:PREFERREDPHONE#</a>'
+                                            width: 100
                                         },
                                         {
                                             field: "DUPLICATE_ID",
                                             title: "Duplicate ID",
                                             width: 100,
-                                        },
-                                        {
-                                            field: "ORGKEY",
-                                            title: "Customer ID",
-                                            width: 100
                                         },
                                         {
                                             field: "ACCOUNT_NO",

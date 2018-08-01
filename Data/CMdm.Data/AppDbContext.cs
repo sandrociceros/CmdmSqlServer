@@ -479,6 +479,8 @@ namespace CMdm.Data
         public System.Data.Entity.DbSet<CMdm.Entities.Domain.CustomModule.Fcmb.DqiSummary> DqiSummary { get; set; }
         public System.Data.Entity.DbSet<CMdm.Entities.Domain.CustomModule.Fcmb.CustAccount> CustAccount { get; set; }
         public System.Data.Entity.DbSet<CMdm.Entities.Domain.CustomModule.Fcmb.ActivityLog> ActivityLog { get; set; }
+        public System.Data.Entity.DbSet<CMdm.Entities.Domain.CustomModule.Fcmb.DistinctSameCif> DistinctSameCif { get; set; }
+        public System.Data.Entity.DbSet<CMdm.Entities.Domain.CustomModule.Fcmb.SameCif> SameCif { get; set; }
 
         public System.Data.Entity.DbSet<CMdm.Entities.Domain.Customer.CDMA_INDIVIDUAL_NEXT_OF_KIN> CDMA_INDIVIDUAL_NEXT_OF_KIN { get; set; }
         public System.Data.Entity.DbSet<CMdm.Entities.Domain.Customer.CDMA_CUST_REL_TYPE> CDMA_CUST_REL_TYPE { get; set; }

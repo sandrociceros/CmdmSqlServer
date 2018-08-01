@@ -38,7 +38,7 @@ namespace CMdm.UI.Web.Models.CustomModule.Fcmb
         public string SCHEME_CODE { get; set; }
         [DisplayName("Account Number ")]
         public string ACCOUNTNO { get; set; }
-        public int Id
+        public Int64 Id
         {
             get; set;
         }

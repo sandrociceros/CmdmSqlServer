@@ -113,11 +113,13 @@
     <Compile Include="Domain\CustomModule\Fcmb\CustSegment.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\DistinctDocs.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\DistinctRefCode.cs" />
+    <Compile Include="Domain\CustomModule\Fcmb\DistinctSameCif.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\DqiSummary.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\EmailPhone.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\Exceptions.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\MultipleRefCode.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\PhoneValidation.cs" />
+    <Compile Include="Domain\CustomModule\Fcmb\SameCif.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\WrongSchemeCode.cs" />
     <Compile Include="Domain\CustomModule\Fcmb\WrongSegment.cs" />
     <Compile Include="Domain\Dqi\BranchDqiSummary.cs" />

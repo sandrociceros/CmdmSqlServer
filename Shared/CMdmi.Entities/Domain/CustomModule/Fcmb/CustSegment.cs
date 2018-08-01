@@ -28,7 +28,7 @@ namespace CMdm.Entities.Domain.CustomModule.Fcmb
         public string SUBSECTOR { get; set; }
         public string SUBSECTORNAME { get; set; }
         public string SUBSEGMENT { get; set; }
-        public Int64? CORP_ID { get; set; }
+        public long? CORP_ID { get; set; }
         public string SCHEME_CODE { get; set; }
         public string ACCOUNT_NO { get; set; }
         public string CUSTOMER_TYPE { get; set; }

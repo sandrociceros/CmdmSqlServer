@@ -130,7 +130,7 @@ namespace CMdm.UI.Web.Controllers
 
             if (_permissionservice.IsLevel(AuthorizationLevel.Enterprise))
             {
-                curBranchList = curBranchList;
+                curBranchList = new string[] { "999" };
             }
             else if (_permissionservice.IsLevel(AuthorizationLevel.Regional))
             {

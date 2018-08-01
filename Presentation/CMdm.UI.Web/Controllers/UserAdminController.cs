@@ -82,7 +82,8 @@ namespace CMdm.UI.Web.Controllers
         [HttpPost]
         public ActionResult ListUsers(DataSourceRequest command, UsersListViewModel model, [ModelBinder(typeof(CommaSeparatedModelBinder))] int[] searchRoleIds)
         {
-
+            AppDbContext db = new AppDbContext();
+            
             var items = _userService.GetAllUsers(
                 userRoleIds : searchRoleIds,
                 email: model.SearchEmail,
@@ -531,6 +532,7 @@ namespace CMdm.UI.Web.Controllers
 
             protected override void Dispose(bool disposing)
             {
+                disposing = false;
                 database.Dispose();
                 base.Dispose(disposing);
             }

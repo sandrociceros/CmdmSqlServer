@@ -1,13 +1,12 @@
 ﻿@using CMdm.Framework;
-@model CMdm.UI.Web.Models.CustomModule.Fcmb.EmailPhoneModel
+@model CMdm.UI.Web.Models.CustomModule.Fcmb.SameCifModel
 @{
-    ViewBag.Title = "Multiple Customers With Same Email and Phone Number";
+    ViewBag.Title = "Customers With Same Customer No";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var defaultGridPageSize = 10;
     var gridPageSizes = "10, 15, 20, 50, 100";
 }
 <style>
-
 
     .nav-tabs-custom > .tab-content {
         color: black;
@@ -17,44 +16,39 @@
         width: 900px;
     }
 </style>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<div class="content-header clearfix">
-    @*<h1 class="pull-left">
-            Multiple Customers With Same Email and Phone Number
-        </h1>*@
-    <h1 class="pull-left">
-        <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink("To List", "List")</small>
-    </h1>
-    <div class="pull-right">
-        <div class="btn-group">
-            <button type="button" class="btn bg-purple">
-                <i class="fa fa-download"></i>
-                Export
-            </button>
-            <button type="button" class="btn bg-purple dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                <span class="caret"></span>
-                <span class="sr-only">&nbsp;</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li class="divider"></li>
-                @*<li>
-                        <button type="submit" name="exportexcel-all">
+    <div class="content-header clearfix">
+        @*<h1 class="pull-left">
+                Customers With Same Customer No
+            </h1>*@
+        <h1 class="pull-left">
+            <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink("To List", "List")</small>
+        </h1>
+        <div class="pull-right">
+            <div class="btn-group">
+                <button type="button" class="btn bg-purple">
+                    <i class="fa fa-download"></i>
+                    Export
+                </button>
+                <button type="button" class="btn bg-purple dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">&nbsp;</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="divider"></li>
+                    <li>
+                        <button type="button" id="exportexcel-selected">
                             <i class="fa fa-file-excel-o"></i>
-                            ExportToExcel All
+                            ExportToExcel Selected
                         </button>
-                    </li>*@
-                <li>
-                    <button type="button" id="exportexcel-selected">
-                        <i class="fa fa-file-excel-o"></i>
-                        ExportToExcel Selected
-                    </button>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
     <div class="content">
         <div class="form-horizontal">
@@ -65,69 +59,36 @@
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <div class="col-md-4">
-                                        @Html.Label("Customer ID")
+                                        @Html.Label("Customer NO")
                                     </div>
                                     <div class="col-md-8">
-                                        @Html.CMdmEditorFor(model => model.ORGKEY)
+                                        @Html.CMdmEditorFor(model => model.CUSTOMER_ID)
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        @Html.Label("Customer Name")
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.CMdmEditorFor(model => model.CUST_NAME)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
                                 <div class="form-group">
                                     <div class="col-md-4">
                                         @Html.Label("Account Number")
                                     </div>
                                     <div class="col-md-8">
-                                        @Html.CMdmEditorFor(model => model.ACCOUNT_NO)
+                                        @Html.CMdmEditorFor(model => model.FORACID)
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-4">
-                                        @Html.Label("Branch Name")
+                                        @Html.LabelFor(model => model.SOL_ID)
                                     </div>
                                     <div class="col-md-8">
-                                        @Html.CMdmDropDownList("BRANCH_CODE", Model.Branches)
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        @Html.Label("Email")
-                                    </div>
-                                    <div class="col-md-8">
-                                        @Html.CMdmEditorFor(model => model.EMAIL)
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-md-7">
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        @Html.Label("Phone Number")
-                                    </div>
-                                    <div class="col-md-8">
-                                        @Html.CMdmEditorFor(model => model.PREFERREDPHONE)
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        @Html.Label("First Name")
-                                    </div>
-                                    <div class="col-md-8">
-                                        @Html.CMdmEditorFor(model => model.CUST_FIRST_NAME)
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        @Html.Label("Middle Name")
-                                    </div>
-                                    <div class="col-md-8">
-                                        @Html.CMdmEditorFor(model => model.CUST_MIDDLE_NAME)
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        @Html.Label("Last Name")
-                                    </div>
-                                    <div class="col-md-8">
-                                        @Html.CMdmEditorFor(model => model.CUST_LAST_NAME)
+                                        @Html.CMdmDropDownList("SOL_ID", Model.Branches)
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +113,7 @@
                                         type: "json",
                                         transport: {
                                             read: {
-                                                url: "@Html.Raw(Url.Action("AuthList", "EmailPhone"))",
+                                                url: "@Html.Raw(Url.Action("AuthList", "SameCif"))",
                                                 type: "POST",
                                                 dataType: "json",
                                                 data: additionalData
@@ -194,53 +155,27 @@
                                             width: 50
                                         },
                                         {
-                                            field: "ORGKEY",
-                                            title: "Customer ID",
+                                            field: "CUSTOMER_ID",
+                                            title: "Customer no",
+                                            width: 70
+                                        },
+                                        {
+                                            field: "FORACID",
+                                            title: "Account  Number",
                                             width: 100
                                         },
                                         {
-                                            field: "PREFERREDPHONE",
-                                            title: "Preferred Phone",
+                                            field: "CUST_NAME",
+                                            title: "Customer Name",
                                             width: 100
                                         },
                                         {
-                                            field: "DUPLICATE_ID",
-                                            title: "Duplicate ID",
-                                            width: 100,
+                                            field: "FREE_CODE_10",
+                                            title: "Free Code",
+                                            width: 70
                                         },
                                         {
-                                            field: "ACCOUNT_NO",
-                                            title: "Account Number",
-                                            width: 100
-                                        },
-                                        {
-                                            field: "SCHM_CODE",
-                                            title: "Scheme Code",
-                                            width: 50
-                                        },
-                                        {
-                                            field: "CUST_FIRST_NAME",
-                                            title: "First Name",
-                                            width: 100
-                                        },
-                                        {
-                                            field: "CUST_MIDDLE_NAME",
-                                            title: "Middle Name",
-                                            width: 100
-                                        },
-                                        {
-                                            field: "CUST_LAST_NAME",
-                                            title: "Last Name",
-                                            width: 50
-                                        },
-                                        {
-                                            field: "CUST_DOB",
-                                            title: "Date of Birth",
-                                            width: 100,
-                                            template: "#= kendo.toString(kendo.parseDate(CUST_DOB, 'yyyy-MM-dd'), 'dd/MM/yyyy') #"
-                                        },
-                                        {
-                                            field: "BRANCH_CODE",
+                                            field: "SOL_ID",
                                             title: "Branch Code",
                                             width: 50
                                         },
@@ -250,24 +185,14 @@
                                             width: 100
                                         },
                                         {
-                                            field: "BVN",
-                                            title: "BVN",
+                                            field: "REF_DESC",
+                                            title: "Description",
                                             width: 100
                                         },
                                         {
-                                            field: "GENDER",
-                                            title: "Gender",
-                                            width: 100
-                                        },
-                                        {
-                                            field: "CUSTOMERMINOR",
-                                            title: "Customer Minor",
-                                            width: 100
-                                        },
-                                        {
-                                            field: "EMAIL",
-                                            title: "Email",
-                                            width: 100
+                                            field: "SCHM_CODE",
+                                            title: "Scheme Code",
+                                            width: 50
                                         },
                                     ]
                                 });
@@ -295,7 +220,7 @@
                         return false;
                     });
 
-                    $("#ORGKEY, #ACCOUNT_NO, #BRANCH_CODE, #EMAIL, #PREFERREDPHONE, #CUST_FIRST_NAME, #CUST_MIDDLE_NAME, #CUST_LAST_NAME").keydown(function (event) {
+                    $("#@Html.FieldIdFor(model => model.FORACID), #CUSTOMER_ID, #FORACID, #CUST_NAME, #SOL_ID").keydown(function (event) {
                         if (event.keyCode === 13) {
                             $("#search-products").click();
                             return false;
@@ -348,14 +273,10 @@
 
                 function additionalData() {
                     var data = {
-                        ORGKEY: $('#ORGKEY').val(),
-                        CUST_FIRST_NAME: $('#CUST_FIRST_NAME').val(),
-                        CUST_MIDDLE_NAME: $('#CUST_MIDDLE_NAME').val(),
-                        CUST_LAST_NAME: $('#CUST_LAST_NAME').val(),
-                        BRANCH_CODE: $('#BRANCH_CODE').val(),
-                        EMAIL: $('#EMAIL').val(),
-                        PREFERREDPHONE: $('#PREFERREDPHONE').val(),
-                        ACCOUNT_NO: $('#ACCOUNT_NO').val(),
+                        FORACID: $('#FORACID').val(),
+                        SOL_ID: $('#SOL_ID').val(),
+                        CUSTOMER_ID: $('#CUSTOMER_ID').val(),
+                        CUST_NAME: $('#CUST_NAME').val(),
                     };
                     addAntiForgeryToken(data);
                     return data;
@@ -380,8 +301,9 @@
     </script>
 }
 
+
 @*export selected (Excel). We don't use GET approach because it's limited to 2K-4K chars and won't work for large number of entities*@
-@using (Html.BeginForm("ExportExcelSelected", "EmailPhone", FormMethod.Post, new { id = "export-excel-selected-form" }))
+@using (Html.BeginForm("ExportSameCifExcelSelected", "SameCif", FormMethod.Post, new { id = "export-excel-selected-form" }))
 {
     @Html.AntiForgeryToken()
     <input type="hidden" id="selectedIds" name="selectedIds" value="" />

@@ -93,11 +93,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\CMdm.Data\CMdm.Data.csproj">
+    <ProjectReference Include="..\..\Data\CMdm.Data\CMdm.Data.csproj">
       <Project>{634C7996-9D6A-4709-A56E-C93C37D790BC}</Project>
       <Name>CMdm.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Shared\CMdmi.Entities\CMdm.Entities.csproj">
+    <ProjectReference Include="..\..\Shared\CMdmi.Entities\CMdm.Entities.csproj">
       <Project>{A75108F2-71A2-4CDB-924F-F98D31A7EFD5}</Project>
       <Name>CMdm.Entities</Name>
     </ProjectReference>
